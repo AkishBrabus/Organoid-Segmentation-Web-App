@@ -92,7 +92,7 @@ class TwoDimensionalDataset(Dataset):
 
         # get image and instance list
         image_list = glob.glob(
-            os.path.join(data_dir, "{}/".format(type), "images/*.tiff")
+            os.path.join(data_dir, "{}/".format(type), "images/*.tif")
         )
         image_list.sort()
         print("Number of images in `{}` directory is {}".format(type, len(image_list)))

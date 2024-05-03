@@ -4,8 +4,8 @@ from EmbedSeg.test import begin_evaluating
 def main():
     configs = create_test_configs_dict(
         data_dir = r"C:/Users/cryst/Desktop/Test Images",
-        checkpoint_path = r"C:/Users/cryst/Desktop/Organoid-Segmentation-Web-App/models/best_iou_model.pth",
-        tta = True,
+        checkpoint_path = r"C:/Users/cryst/Desktop/Organoid-Segmentation-Web-App/training/Colon Organoid 5_2_2024/model/best_iou_model.pth",
+        tta = False,
         ap_val = 0.5,
         min_object_size = 2,
         save_dir = r"C:/Users/cryst/Desktop/Organoid-Segmentation-Web-App/temp",
