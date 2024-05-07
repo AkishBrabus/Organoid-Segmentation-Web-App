@@ -19,7 +19,7 @@ torch.backends.cudnn.benchmark = True
 
 
 def begin_evaluating(
-    test_configs, optimize=False, maxiter=10, verbose=False, mask_region=None
+    test_configs, optimize=False, maxiter=10, verbose=False, mask_region=None, progress_bar=None
 ):
     """Entry function for inferring on test images
 
@@ -128,6 +128,7 @@ def begin_evaluating(
             cluster_fast,
             expand_grid,
             device,
+            progress_bar
         )
         if optimize:
             result = minimize_scalar(
@@ -991,6 +992,7 @@ def test(fg_thresh, *args):
         cluster_fast,
         expand_grid,
         device,
+        progress_bar
     ) = args
 
     model.eval()
@@ -1001,7 +1003,10 @@ def test(fg_thresh, *args):
     with torch.no_grad():
         result_list = []
         image_file_names = []
+        i = 0
         for sample in tqdm(dataset_it):
+            i += 1
+            progress_bar.set(i, message = "Calculating...", detail = "{} ({} of {})".format(os.path.basename(sample["im_name"][0]), i, len(dataset_it)))
             im = sample["image"]  # B 1 Y X
             im = im.to(device)
 
