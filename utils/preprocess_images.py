@@ -9,7 +9,8 @@ def preprocess_images(impaths, imnames):
 
     clear_folder("temp")
     upload = os.path.join("temp", "comp", "uploaded", "test", "images")
-    os.makedirs(upload)
+    if not os.path.isdir(upload):
+        os.makedirs(upload)
     for i in range(len(impaths)):
         impath = impaths[i]
         imname = os.path.splitext(imnames[i])[0]

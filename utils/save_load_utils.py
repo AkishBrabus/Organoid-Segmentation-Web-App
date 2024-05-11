@@ -16,6 +16,6 @@ def save_experiment(fname):
 def load_experiment(fpath):
     if fpath == None:
         return None
-    clear_folder("temp/")
+    clear_folder("temp")
     shutil.unpack_archive(fpath, os.path.join("temp", "comp"), "zip")
     return os.path.join("temp", "comp")
