@@ -25,8 +25,6 @@ def pca_plotter(data, target):
     
     fig, ax = plt.subplots()
     scatter = ax.scatter(Xt[:,0], Xt[:,1], c=[target_set.index(t) for t in target], cmap=cm.rainbow)
-    print(len(scatter.legend_elements()[0]))
-    print(target_set)
     #ax.legend(handles=scatter.legend_elements()[0], labels=target_set)
     ax.legend(handles=scatter.legend_elements()[0], labels = target_set, frameon=True)
     return fig
