@@ -23,7 +23,6 @@ plt.style.use('seaborn-v0_8-darkgrid')
 
 # Add page title and sidebar
 app_ui = ui.page_fluid(
-    ui.include_css("style.css"),
     ui.layout_sidebar(
         ui.sidebar(
             ui.accordion(
